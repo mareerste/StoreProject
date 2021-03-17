@@ -6,46 +6,38 @@ import java.util.Scanner;
 public class Store {
 
 	public static void main(String[] args) {
-		
+		 
 		
 		ArrayList<HashMap<String, String>> inventory = new ArrayList<>();
 		
-		HashMap<String, String> product = new HashMap<>();
-		product.put("name", "Tastatyura XZ");
-		product.put("price", "3999");
-		product.put("quantity", "3");
-		inventory.add(product);
-		
-		product = new HashMap<>();
-		product.put("name", "Tastatyura XY");
-		product.put("price", "3000");
-		product.put("quantity", "5");
-		inventory.add(product);
-		
-		
-//		inventory.add("Tastatyura XZ");
-//		inventory.add("Tastatyura YY");
-//		inventory.add("Televizor LG KY");
-//		inventory.add("Televizor Samsung X");
-//		inventory.add("Ves masina 12");
-//		inventory.add("Ves masina YY");
-//		inventory.add("Ves masina X4");
-//		inventory.add("Pegla TT");
-//		inventory.add("Pegla TX");
-		
-		
+		inventory.add(createProduct("Tastatura YY", "3999", "5"));
+		inventory.add(createProduct("Tastatura XT", "4200", "5"));
+		inventory.add(createProduct("Tastatura 433", "2499", "4"));
+		inventory.add(createProduct("Pegla XX", "1990", "7"));
+		inventory.add(createProduct("TV samsung 3", "8000", "2"));
 		
 		System.out.println("Unesite parametar pretrage:");
 		Scanner scanner = new Scanner(System.in);
 		String searchText = scanner.nextLine();
 		
 		for (HashMap<String, String> p : inventory) {
-			if (p.toLowerCase().contains(searchText.toLowerCase())) {
-				System.out.println(p);
+			if (p.get("name").toLowerCase().contains(searchText.toLowerCase())) {
+				System.out.println("\n");
+				System.out.println("Name: " + p.get("name"));
+				System.out.println("Price: " + p.get("price"));
+				System.out.println("Quantity: " + p.get("quantity"));
 			}
 		}
 		
 
+	}
+
+	private static HashMap<String, String> createProduct(String name, String price, String quantity ) {
+		HashMap<String, String> product = new HashMap<>();
+		product.put("name", name);
+		product.put("price", price);
+		product.put("quantity", quantity);
+		return product;
 	}
 
 }
