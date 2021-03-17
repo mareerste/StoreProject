@@ -8,13 +8,7 @@ public class Store {
 	public static void main(String[] args) {
 		 
 		
-		ArrayList<HashMap<String, String>> inventory = new ArrayList<>();
-		
-		inventory.add(createProduct("Tastatura YY", "3999", "5"));
-		inventory.add(createProduct("Tastatura XT", "4200", "5"));
-		inventory.add(createProduct("Tastatura 433", "2499", "4"));
-		inventory.add(createProduct("Pegla XX", "1990", "7"));
-		inventory.add(createProduct("TV samsung 3", "8000", "2"));
+		ArrayList<HashMap<String, String>> inventory = createInventory();
 		
 		System.out.println("Unesite parametar pretrage:");
 		Scanner scanner = new Scanner(System.in);
@@ -30,6 +24,17 @@ public class Store {
 		}
 		
 
+	}
+
+	private static ArrayList<HashMap<String, String>> createInventory() {
+		ArrayList<HashMap<String, String>> inventory = new ArrayList<>();
+		
+		inventory.add(createProduct("Tastatura YY", "3999", "5"));
+		inventory.add(createProduct("Tastatura XT", "4200", "5"));
+		inventory.add(createProduct("Tastatura 433", "2499", "4"));
+		inventory.add(createProduct("Pegla XX", "1990", "7"));
+		inventory.add(createProduct("TV samsung 3", "8000", "2"));
+		return inventory;
 	}
 
 	private static HashMap<String, String> createProduct(String name, String price, String quantity ) {
