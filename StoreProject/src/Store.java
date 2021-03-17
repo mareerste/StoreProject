@@ -41,20 +41,12 @@ public class Store {
 	private static ArrayList<Product> createInventory() {
 		ArrayList<Product> inventory = new ArrayList<>();
 		
-		inventory.add(createProduct("Tastatura YY", 3999, 5));
-		inventory.add(createProduct("Tastatura XT", 4200, 5));
-		inventory.add(createProduct("Tastatura 433", 2499, 4));
-		inventory.add(createProduct("Pegla XX", 1990, 7));
-		inventory.add(createProduct("TV samsung 3", 8000, 2));
+		inventory.add(new Product("Tastatura YY",(double) 3999,(double) 5));
+		inventory.add(new Product("Tastatura XT",(double) 4200,(double) 5));
+		inventory.add(new Product("Tastatura 433",(double) 2499,(double) 4));
+		inventory.add(new Product("Pegla XX",(double) 1990,(double) 7));
+		inventory.add(new Product("TV samsung 3",(double) 8000,(double) 2));
 		return inventory;
-	}
-
-	private static Product createProduct(String name, double price, double quantity ) {
-		Product product = new Product();
-		product.name = name;
-		product.price = price;
-		product.quantity = quantity;
-		return product;
 	}
 
 }
