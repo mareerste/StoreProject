@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -8,15 +7,14 @@ public class Store {
 
 	public static void main(String[] args) {
 		
-		ArrayList<HashMap<String, String>> inventory = createInventory();
+		ArrayList<Product> inventory = createInventory();
 		
 //		Ispis totalne vrednosti inventorya
 		
 		int sum = 0;
-		for (HashMap<String, String> p : inventory) {
-			double price = Double.parseDouble(p.get("price"));
-			double quantity = Double.parseDouble(p.get("quantity"));
-			
+		for (Product p : inventory) {
+			double price = p.price;
+			double quantity = p.quantity;
 			sum += price * quantity;
 			
 		}
@@ -40,22 +38,22 @@ public class Store {
 
 	}
 
-	private static ArrayList<HashMap<String, String>> createInventory() {
-		ArrayList<HashMap<String, String>> inventory = new ArrayList<>();
+	private static ArrayList<Product> createInventory() {
+		ArrayList<Product> inventory = new ArrayList<>();
 		
-		inventory.add(createProduct("Tastatura YY", "3999", "5"));
-		inventory.add(createProduct("Tastatura XT", "4200", "5"));
-		inventory.add(createProduct("Tastatura 433", "2499", "4"));
-		inventory.add(createProduct("Pegla XX", "1990", "7"));
-		inventory.add(createProduct("TV samsung 3", "8000", "2"));
+		inventory.add(createProduct("Tastatura YY", 3999, 5));
+		inventory.add(createProduct("Tastatura XT", 4200, 5));
+		inventory.add(createProduct("Tastatura 433", 2499, 4));
+		inventory.add(createProduct("Pegla XX", 1990, 7));
+		inventory.add(createProduct("TV samsung 3", 8000, 2));
 		return inventory;
 	}
 
-	private static HashMap<String, String> createProduct(String name, String price, String quantity ) {
-		HashMap<String, String> product = new HashMap<>();
-		product.put("name", name);
-		product.put("price", price);
-		product.put("quantity", quantity);
+	private static Product createProduct(String name, double price, double quantity ) {
+		Product product = new Product();
+		product.name = name;
+		product.price = price;
+		product.quantity = quantity;
 		return product;
 	}
 
