@@ -1,27 +1,41 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
 public class Store {
 
 	public static void main(String[] args) {
-		 
 		
 		ArrayList<HashMap<String, String>> inventory = createInventory();
 		
-		System.out.println("Unesite parametar pretrage:");
-		Scanner scanner = new Scanner(System.in);
-		String searchText = scanner.nextLine();
+//		Ispis totalne vrednosti inventorya
 		
+		int sum = 0;
 		for (HashMap<String, String> p : inventory) {
-			if (p.get("name").toLowerCase().contains(searchText.toLowerCase())) {
-				System.out.println("\n");
-				System.out.println("Name: " + p.get("name"));
-				System.out.println("Price: " + p.get("price"));
-				System.out.println("Quantity: " + p.get("quantity"));
-			}
+			double price = Double.parseDouble(p.get("price"));
+			double quantity = Double.parseDouble(p.get("quantity"));
+			
+			sum += price * quantity;
+			
 		}
+		
+		System.out.println("Total value is: " + sum);
+		
+		
+//		System.out.println("Unesite parametar pretrage:");
+//		Scanner scanner = new Scanner(System.in);
+//		String searchText = scanner.nextLine();
+//		
+//		for (HashMap<String, String> p : inventory) {
+//			if (p.get("name").toLowerCase().contains(searchText.toLowerCase())) {
+//				System.out.println("\n");
+//				System.out.println("Name: " + p.get("name"));
+//				System.out.println("Price: " + p.get("price"));
+//				System.out.println("Quantity: " + p.get("quantity"));
+//			}
+//		}
 		
 
 	}
